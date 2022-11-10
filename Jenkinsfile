@@ -39,8 +39,25 @@ pipeline {
     }
 
     stage('PRODUCTION') {
-      steps {
-        sh 'echo "stage5"'
+      parallel {
+        stage('PRODUCTION') {
+          steps {
+            sh 'echo "stage5"'
+          }
+        }
+
+        stage('MANAGER') {
+          steps {
+            sh 'echo "stage manager"'
+          }
+        }
+
+        stage('CLIENT') {
+          steps {
+            sh 'echo "stage client"'
+          }
+        }
+
       }
     }
 
