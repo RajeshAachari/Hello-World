@@ -61,5 +61,11 @@ pipeline {
       }
     }
 
+    stage('HR') {
+      steps {
+        sh 'echo "stahe of hr"'
+      }
+    }
+
   }
 }
