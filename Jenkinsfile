@@ -67,5 +67,11 @@ pipeline {
       }
     }
 
+    stage('Worker Node1') {
+      steps {
+        sh 'echo "stage of worker"'
+      }
+    }
+
   }
 }
