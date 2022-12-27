@@ -68,8 +68,19 @@ pipeline {
     }
 
     stage('Worker Node1') {
-      steps {
-        sh 'echo "stage of worker"'
+      parallel {
+        stage('Worker Node1') {
+          steps {
+            sh 'echo "stage of worker"'
+          }
+        }
+
+        stage('Google') {
+          steps {
+            sh 'echo "stage of lost"'
+          }
+        }
+
       }
     }
 
